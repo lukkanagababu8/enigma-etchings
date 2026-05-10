@@ -1,9 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useRef, useState } from "react";
 import {
   Shield, Terminal, Lock, Bug, Network, Code2, Database, Cpu,
   Github, Linkedin, Mail, Phone, ExternalLink, ChevronRight,
   Eye, ShieldCheck, Wifi, KeyRound, FileSearch, Server,
 } from "lucide-react";
+import portrait from "@/assets/nagababu.jpg";
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
@@ -116,39 +118,106 @@ function Hero() {
         <div className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-primary/20 blur-3xl animate-float" />
         <div className="absolute bottom-1/4 -right-20 w-96 h-96 rounded-full bg-primary/10 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
       </div>
-      <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-        <div className="inline-flex items-center gap-2 rounded-full border border-neon px-4 py-1.5 mb-8 font-mono-cyber text-xs text-neon glow-sm animate-pulse-glow">
-          <span className="h-2 w-2 rounded-full bg-neon animate-pulse" />
-          SYSTEM ONLINE — ACCESS GRANTED
+      <div className="relative z-10 mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-10 items-center">
+        <div className="text-center md:text-left order-2 md:order-1">
+          <div className="inline-flex items-center gap-2 rounded-full border border-neon px-4 py-1.5 mb-6 font-mono-cyber text-xs text-neon glow-sm animate-pulse-glow">
+            <span className="h-2 w-2 rounded-full bg-neon animate-pulse" />
+            SYSTEM ONLINE — ACCESS GRANTED
+          </div>
+          <p className="font-mono-cyber text-neon mb-4 animate-flicker">&gt; initializing_profile.exe</p>
+          <h1 className="text-5xl md:text-7xl font-display font-black mb-6 animate-fade-up leading-[1.05]">
+            NAGABABU <span className="text-neon block md:inline">LUKKA</span>
+          </h1>
+          <p className="text-base md:text-xl text-muted-foreground mb-4 font-mono-cyber animate-fade-up" style={{ animationDelay: "0.15s" }}>
+            [ Cyber Security Student | Ethical Hacking Enthusiast ]
+          </p>
+          <p className="max-w-xl text-sm md:text-base text-muted-foreground/80 italic mb-8 mx-auto md:mx-0 animate-fade-up" style={{ animationDelay: "0.22s" }}>
+            "Exploring the unseen side of technology — securing the future, one system at a time."
+          </p>
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 animate-fade-up" style={{ animationDelay: "0.3s" }}>
+            <a href="#projects" className="group inline-flex items-center gap-2 rounded-md bg-primary px-7 py-3 font-display font-bold text-primary-foreground glow hover:scale-105 transition-transform">
+              View Projects
+              <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </a>
+            <a href="#contact" className="inline-flex items-center gap-2 rounded-md border border-neon px-7 py-3 font-display font-bold text-neon hover:bg-primary/10 transition-colors">
+              <Terminal className="h-4 w-4" />
+              Contact
+            </a>
+          </div>
         </div>
-        <p className="font-mono-cyber text-neon mb-4 animate-flicker">&gt; initializing_profile.exe</p>
-        <h1 className="text-5xl md:text-7xl font-display font-black mb-6 animate-fade-up">
-          NAGABABU <span className="text-neon">LUKKA</span>
-        </h1>
-        <p className="text-lg md:text-2xl text-muted-foreground mb-4 font-mono-cyber animate-fade-up" style={{ animationDelay: "0.15s" }}>
-          [ Cyber Security Student | Ethical Hacking Enthusiast ]
-        </p>
-        <p className="max-w-2xl mx-auto text-base md:text-lg text-muted-foreground/80 italic mb-10 animate-fade-up" style={{ animationDelay: "0.22s" }}>
-          “Exploring the unseen side of technology — securing the future, one system at a time.”
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-up" style={{ animationDelay: "0.3s" }}>
-          <a
-            href="#projects"
-            className="group inline-flex items-center gap-2 rounded-md bg-primary px-7 py-3 font-display font-bold text-primary-foreground glow hover:scale-105 transition-transform"
-          >
-            View Projects
-            <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-md border border-neon px-7 py-3 font-display font-bold text-neon hover:bg-primary/10 transition-colors"
-          >
-            <Terminal className="h-4 w-4" />
-            Contact
-          </a>
+        <div className="order-1 md:order-2 flex justify-center">
+          <TiltPortrait />
         </div>
       </div>
     </section>
+  );
+}
+
+function TiltPortrait() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [t, setT] = useState({ rx: 0, ry: 0, mx: 50, my: 50, active: false });
+
+  useEffect(() => {
+    let raf = 0;
+    let a = 0;
+    const loop = () => {
+      a += 0.012;
+      setT(prev => prev.active ? prev : { rx: Math.sin(a) * 5, ry: Math.cos(a) * 7, mx: 50 + Math.cos(a) * 12, my: 50 + Math.sin(a) * 12, active: false });
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  const onMove = (e: React.MouseEvent) => {
+    const el = ref.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width;
+    const py = (e.clientY - r.top) / r.height;
+    setT({ ry: (px - 0.5) * 26, rx: -(py - 0.5) * 26, mx: px * 100, my: py * 100, active: true });
+  };
+  const onLeave = () => setT(s => ({ ...s, active: false }));
+
+  return (
+    <div className="[perspective:1200px] animate-fade-up" style={{ animationDelay: "0.1s" }}>
+      <div
+        ref={ref}
+        onMouseMove={onMove}
+        onMouseLeave={onLeave}
+        className="relative w-[260px] h-[340px] sm:w-[300px] sm:h-[400px] md:w-[360px] md:h-[480px] [transform-style:preserve-3d] will-change-transform"
+        style={{ transform: `rotateX(${t.rx}deg) rotateY(${t.ry}deg)`, transition: t.active ? "transform 0.08s linear" : "transform 0.4s ease-out" }}
+      >
+        <div className="absolute -inset-6 rounded-3xl bg-primary/30 blur-3xl opacity-60 animate-pulse-glow" style={{ transform: "translateZ(-60px)" }} />
+        <div className="absolute -inset-2 rounded-3xl border border-neon/40" style={{ transform: "translateZ(20px)" }} />
+        <div className="absolute -inset-4 rounded-3xl border border-neon/15" style={{ transform: "translateZ(40px)" }} />
+        <div className="relative h-full w-full rounded-2xl overflow-hidden border border-neon/60 glow bg-card">
+          <img src={portrait} alt="Nagababu Lukka" className="absolute inset-0 h-full w-full object-cover" />
+          <div className="absolute inset-0 mix-blend-screen opacity-50 pointer-events-none"
+            style={{ background: `radial-gradient(circle at ${t.mx}% ${t.my}%, oklch(0.78 0.20 230 / 0.55), transparent 55%)` }} />
+          <div className="absolute inset-0 pointer-events-none" style={{
+            background: "linear-gradient(transparent 50%, oklch(0.75 0.18 230 / 0.10) 50%)",
+            backgroundSize: "100% 4px",
+          }} />
+          {["top-2 left-2 border-t-2 border-l-2","top-2 right-2 border-t-2 border-r-2","bottom-2 left-2 border-b-2 border-l-2","bottom-2 right-2 border-b-2 border-r-2"].map(c => (
+            <span key={c} className={`absolute ${c} border-neon w-6 h-6 rounded-sm`} />
+          ))}
+          <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-background/95 to-transparent">
+            <p className="font-mono-cyber text-[10px] text-neon flex justify-between">
+              <span>ID://NAGABABU.LUKKA</span>
+              <span className="animate-pulse">● LIVE</span>
+            </p>
+            <p className="font-mono-cyber text-[10px] text-muted-foreground">CLEARANCE: ETHICAL_HACKER</p>
+          </div>
+        </div>
+        <span className="absolute top-6 -left-4 rounded-md bg-card/90 border border-neon px-2 py-1 font-mono-cyber text-[10px] text-neon glow-sm" style={{ transform: "translateZ(70px)" }}>
+          &lt;/secure&gt;
+        </span>
+        <span className="absolute bottom-20 -right-4 rounded-md bg-card/90 border border-neon px-2 py-1 font-mono-cyber text-[10px] text-neon glow-sm" style={{ transform: "translateZ(70px)" }}>
+          root@kali
+        </span>
+      </div>
+    </div>
   );
 }
 
@@ -172,11 +241,14 @@ function About() {
     <Section id="about" eyebrow="whoami" title="About Me">
       <div className="grid md:grid-cols-3 gap-8 items-start">
         <div className="md:col-span-1">
-          <div className="relative rounded-xl border border-border bg-card p-8 glow-sm">
-            <Shield className="h-16 w-16 text-neon mx-auto animate-float" />
-            <p className="mt-6 text-center font-mono-cyber text-sm text-muted-foreground">
-              <span className="text-neon">root@nagababu</span>:~$ <br />
-              status: <span className="text-neon">3rd_year_btech</span>
+          <div className="relative rounded-xl border border-neon/40 bg-card p-3 glow-sm overflow-hidden group">
+            <div className="relative aspect-[3/4] w-full rounded-lg overflow-hidden">
+              <img src={portrait} alt="Nagababu Lukka" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(transparent 50%, oklch(0.75 0.18 230 / 0.08) 50%)", backgroundSize: "100% 4px" }} />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+            </div>
+            <p className="mt-4 text-center font-mono-cyber text-xs text-muted-foreground">
+              <span className="text-neon">root@nagababu</span>:~$ status: <span className="text-neon">final_year_btech</span>
             </p>
           </div>
         </div>
