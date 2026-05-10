@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "NAGA BABU PORTFOLIO" },
+      { name: "description", content: "MY PORTFOLIO" },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "NAGA BABU PORTFOLIO" },
+      { property: "og:description", content: "MY PORTFOLIO" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "NAGA BABU PORTFOLIO" },
+      { name: "twitter:description", content: "MY PORTFOLIO" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/2TpiyYoVNCbIt0o2hPnoZMVlN3D2/social-images/social-1778426852756-WhatsApp_Image_2026-05-10_at_8.28.37_PM.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/2TpiyYoVNCbIt0o2hPnoZMVlN3D2/social-images/social-1778426852756-WhatsApp_Image_2026-05-10_at_8.28.37_PM.webp" },
     ],
     links: [
       {
