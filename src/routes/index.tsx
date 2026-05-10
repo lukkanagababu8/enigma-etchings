@@ -153,6 +153,74 @@ function Hero() {
   );
 }
 
+function TiltPortrait() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [t, setT] = useState({ rx: 0, ry: 0, mx: 50, my: 50, active: false });
+
+  useEffect(() => {
+    let raf = 0;
+    let a = 0;
+    const loop = () => {
+      a += 0.012;
+      setT(prev => prev.active ? prev : { rx: Math.sin(a) * 5, ry: Math.cos(a) * 7, mx: 50 + Math.cos(a) * 12, my: 50 + Math.sin(a) * 12, active: false });
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  const onMove = (e: React.MouseEvent) => {
+    const el = ref.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width;
+    const py = (e.clientY - r.top) / r.height;
+    setT({ ry: (px - 0.5) * 26, rx: -(py - 0.5) * 26, mx: px * 100, my: py * 100, active: true });
+  };
+  const onLeave = () => setT(s => ({ ...s, active: false }));
+
+  return (
+    <div className="[perspective:1200px] animate-fade-up" style={{ animationDelay: "0.1s" }}>
+      <div
+        ref={ref}
+        onMouseMove={onMove}
+        onMouseLeave={onLeave}
+        className="relative w-[260px] h-[340px] sm:w-[300px] sm:h-[400px] md:w-[360px] md:h-[480px] [transform-style:preserve-3d] will-change-transform"
+        style={{ transform: `rotateX(${t.rx}deg) rotateY(${t.ry}deg)`, transition: t.active ? "transform 0.08s linear" : "transform 0.4s ease-out" }}
+      >
+        <div className="absolute -inset-6 rounded-3xl bg-primary/30 blur-3xl opacity-60 animate-pulse-glow" style={{ transform: "translateZ(-60px)" }} />
+        <div className="absolute -inset-2 rounded-3xl border border-neon/40" style={{ transform: "translateZ(20px)" }} />
+        <div className="absolute -inset-4 rounded-3xl border border-neon/15" style={{ transform: "translateZ(40px)" }} />
+        <div className="relative h-full w-full rounded-2xl overflow-hidden border border-neon/60 glow bg-card">
+          <img src={portrait} alt="Nagababu Lukka" className="absolute inset-0 h-full w-full object-cover" />
+          <div className="absolute inset-0 mix-blend-screen opacity-50 pointer-events-none"
+            style={{ background: `radial-gradient(circle at ${t.mx}% ${t.my}%, oklch(0.78 0.20 230 / 0.55), transparent 55%)` }} />
+          <div className="absolute inset-0 pointer-events-none" style={{
+            background: "linear-gradient(transparent 50%, oklch(0.75 0.18 230 / 0.10) 50%)",
+            backgroundSize: "100% 4px",
+          }} />
+          {["top-2 left-2 border-t-2 border-l-2","top-2 right-2 border-t-2 border-r-2","bottom-2 left-2 border-b-2 border-l-2","bottom-2 right-2 border-b-2 border-r-2"].map(c => (
+            <span key={c} className={`absolute ${c} border-neon w-6 h-6 rounded-sm`} />
+          ))}
+          <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-background/95 to-transparent">
+            <p className="font-mono-cyber text-[10px] text-neon flex justify-between">
+              <span>ID://NAGABABU.LUKKA</span>
+              <span className="animate-pulse">● LIVE</span>
+            </p>
+            <p className="font-mono-cyber text-[10px] text-muted-foreground">CLEARANCE: ETHICAL_HACKER</p>
+          </div>
+        </div>
+        <span className="absolute top-6 -left-4 rounded-md bg-card/90 border border-neon px-2 py-1 font-mono-cyber text-[10px] text-neon glow-sm" style={{ transform: "translateZ(70px)" }}>
+          &lt;/secure&gt;
+        </span>
+        <span className="absolute bottom-20 -right-4 rounded-md bg-card/90 border border-neon px-2 py-1 font-mono-cyber text-[10px] text-neon glow-sm" style={{ transform: "translateZ(70px)" }}>
+          root@kali
+        </span>
+      </div>
+    </div>
+  );
+}
+
 function Section({ id, eyebrow, title, children }: { id: string; eyebrow: string; title: string; children: React.ReactNode }) {
   return (
     <section id={id} className="py-24 px-6">
