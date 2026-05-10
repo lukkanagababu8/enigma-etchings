@@ -59,9 +59,9 @@ const projects = [
 ];
 
 const certifications = [
+  { title: "Python Full Stack Certification", issuer: "DataValley — 2-month Internship", icon: Code2 },
   { title: "Cybersecurity Essentials", issuer: "Cisco Networking Academy", icon: ShieldCheck },
   { title: "Introduction to Cybersecurity", issuer: "Cisco", icon: Shield },
-  { title: "Ethical Hacking Foundations", issuer: "Self-paced lab work", icon: Terminal },
   { title: "Networking Fundamentals", issuer: "Cisco CCNA Track", icon: Network },
 ];
 
