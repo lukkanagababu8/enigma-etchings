@@ -125,8 +125,11 @@ function Hero() {
         <h1 className="text-5xl md:text-7xl font-display font-black mb-6 animate-fade-up">
           NAGABABU <span className="text-neon">LUKKA</span>
         </h1>
-        <p className="text-lg md:text-2xl text-muted-foreground mb-10 font-mono-cyber animate-fade-up" style={{ animationDelay: "0.15s" }}>
+        <p className="text-lg md:text-2xl text-muted-foreground mb-4 font-mono-cyber animate-fade-up" style={{ animationDelay: "0.15s" }}>
           [ Cyber Security Student | Ethical Hacking Enthusiast ]
+        </p>
+        <p className="max-w-2xl mx-auto text-base md:text-lg text-muted-foreground/80 italic mb-10 animate-fade-up" style={{ animationDelay: "0.22s" }}>
+          “Exploring the unseen side of technology — securing the future, one system at a time.”
         </p>
         <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-up" style={{ animationDelay: "0.3s" }}>
           <a
