@@ -241,11 +241,14 @@ function About() {
     <Section id="about" eyebrow="whoami" title="About Me">
       <div className="grid md:grid-cols-3 gap-8 items-start">
         <div className="md:col-span-1">
-          <div className="relative rounded-xl border border-border bg-card p-8 glow-sm">
-            <Shield className="h-16 w-16 text-neon mx-auto animate-float" />
-            <p className="mt-6 text-center font-mono-cyber text-sm text-muted-foreground">
-              <span className="text-neon">root@nagababu</span>:~$ <br />
-              status: <span className="text-neon">3rd_year_btech</span>
+          <div className="relative rounded-xl border border-neon/40 bg-card p-3 glow-sm overflow-hidden group">
+            <div className="relative aspect-[3/4] w-full rounded-lg overflow-hidden">
+              <img src={portrait} alt="Nagababu Lukka" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(transparent 50%, oklch(0.75 0.18 230 / 0.08) 50%)", backgroundSize: "100% 4px" }} />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+            </div>
+            <p className="mt-4 text-center font-mono-cyber text-xs text-muted-foreground">
+              <span className="text-neon">root@nagababu</span>:~$ status: <span className="text-neon">final_year_btech</span>
             </p>
           </div>
         </div>
