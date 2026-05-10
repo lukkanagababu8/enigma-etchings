@@ -59,9 +59,9 @@ const projects = [
 ];
 
 const certifications = [
+  { title: "Python Full Stack Certification", issuer: "DataValley — 2-month Internship", icon: Code2 },
   { title: "Cybersecurity Essentials", issuer: "Cisco Networking Academy", icon: ShieldCheck },
   { title: "Introduction to Cybersecurity", issuer: "Cisco", icon: Shield },
-  { title: "Ethical Hacking Foundations", issuer: "Self-paced lab work", icon: Terminal },
   { title: "Networking Fundamentals", issuer: "Cisco CCNA Track", icon: Network },
 ];
 
@@ -125,8 +125,11 @@ function Hero() {
         <h1 className="text-5xl md:text-7xl font-display font-black mb-6 animate-fade-up">
           NAGABABU <span className="text-neon">LUKKA</span>
         </h1>
-        <p className="text-lg md:text-2xl text-muted-foreground mb-10 font-mono-cyber animate-fade-up" style={{ animationDelay: "0.15s" }}>
+        <p className="text-lg md:text-2xl text-muted-foreground mb-4 font-mono-cyber animate-fade-up" style={{ animationDelay: "0.15s" }}>
           [ Cyber Security Student | Ethical Hacking Enthusiast ]
+        </p>
+        <p className="max-w-2xl mx-auto text-base md:text-lg text-muted-foreground/80 italic mb-10 animate-fade-up" style={{ animationDelay: "0.22s" }}>
+          “Exploring the unseen side of technology — securing the future, one system at a time.”
         </p>
         <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-up" style={{ animationDelay: "0.3s" }}>
           <a
@@ -179,20 +182,28 @@ function About() {
         </div>
         <div className="md:col-span-2 space-y-5">
           <p className="text-lg text-muted-foreground leading-relaxed">
-            I'm a <span className="text-neon font-semibold">3rd-year B.Tech Cyber Security student</span> with
-            a deep passion for ethical hacking, vulnerability assessment, and network security. I love
+            I'm a passionate <span className="text-neon font-semibold">final-year B.Tech Cyber Security student</span> at
+            <span className="text-neon"> A.M. Reddy Memorial College of Engineering &amp; Technology</span>,
+            driven by a love for ethical hacking, vulnerability assessment, and network security. I love
             breaking systems down to understand how they really work — and then helping make them safer.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            My focus areas include offensive security fundamentals, network reconnaissance, web
-            application security testing, and writing clean Python tooling to automate everyday
-            security workflows.
+            I recently completed a <span className="text-neon font-semibold">2-month internship at DataValley</span> on
+            Python Full Stack development, and I love building projects that merge creativity and security —
+            from network reconnaissance scripts to web application security testing.
           </p>
-          <div className="grid grid-cols-3 gap-4 pt-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+            {["Quick Learner", "Self-Motivated", "Problem Solver", "Team Player"].map(s => (
+              <div key={s} className="rounded-lg border border-neon/30 bg-card/50 p-3 text-center">
+                <p className="font-mono-cyber text-xs text-neon">{s}</p>
+              </div>
+            ))}
+          </div>
+          <div className="grid grid-cols-3 gap-4 pt-2">
             {[
-              { k: "Focus", v: "Ethical Hacking" },
-              { k: "Year", v: "3rd / B.Tech" },
-              { k: "Stack", v: "Pen-testing" },
+              { k: "College", v: "A.M. Reddy MCET" },
+              { k: "Year", v: "Final / B.Tech" },
+              { k: "CGPA", v: "7.0" },
             ].map(s => (
               <div key={s.k} className="rounded-lg border border-border bg-card/50 p-4">
                 <p className="font-mono-cyber text-xs text-neon">{s.k}</p>
