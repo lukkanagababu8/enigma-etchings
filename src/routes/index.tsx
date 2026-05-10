@@ -118,36 +118,35 @@ function Hero() {
         <div className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-primary/20 blur-3xl animate-float" />
         <div className="absolute bottom-1/4 -right-20 w-96 h-96 rounded-full bg-primary/10 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
       </div>
-      <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-        <div className="inline-flex items-center gap-2 rounded-full border border-neon px-4 py-1.5 mb-8 font-mono-cyber text-xs text-neon glow-sm animate-pulse-glow">
-          <span className="h-2 w-2 rounded-full bg-neon animate-pulse" />
-          SYSTEM ONLINE — ACCESS GRANTED
+      <div className="relative z-10 mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-10 items-center">
+        <div className="text-center md:text-left order-2 md:order-1">
+          <div className="inline-flex items-center gap-2 rounded-full border border-neon px-4 py-1.5 mb-6 font-mono-cyber text-xs text-neon glow-sm animate-pulse-glow">
+            <span className="h-2 w-2 rounded-full bg-neon animate-pulse" />
+            SYSTEM ONLINE — ACCESS GRANTED
+          </div>
+          <p className="font-mono-cyber text-neon mb-4 animate-flicker">&gt; initializing_profile.exe</p>
+          <h1 className="text-5xl md:text-7xl font-display font-black mb-6 animate-fade-up leading-[1.05]">
+            NAGABABU <span className="text-neon block md:inline">LUKKA</span>
+          </h1>
+          <p className="text-base md:text-xl text-muted-foreground mb-4 font-mono-cyber animate-fade-up" style={{ animationDelay: "0.15s" }}>
+            [ Cyber Security Student | Ethical Hacking Enthusiast ]
+          </p>
+          <p className="max-w-xl text-sm md:text-base text-muted-foreground/80 italic mb-8 mx-auto md:mx-0 animate-fade-up" style={{ animationDelay: "0.22s" }}>
+            "Exploring the unseen side of technology — securing the future, one system at a time."
+          </p>
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 animate-fade-up" style={{ animationDelay: "0.3s" }}>
+            <a href="#projects" className="group inline-flex items-center gap-2 rounded-md bg-primary px-7 py-3 font-display font-bold text-primary-foreground glow hover:scale-105 transition-transform">
+              View Projects
+              <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </a>
+            <a href="#contact" className="inline-flex items-center gap-2 rounded-md border border-neon px-7 py-3 font-display font-bold text-neon hover:bg-primary/10 transition-colors">
+              <Terminal className="h-4 w-4" />
+              Contact
+            </a>
+          </div>
         </div>
-        <p className="font-mono-cyber text-neon mb-4 animate-flicker">&gt; initializing_profile.exe</p>
-        <h1 className="text-5xl md:text-7xl font-display font-black mb-6 animate-fade-up">
-          NAGABABU <span className="text-neon">LUKKA</span>
-        </h1>
-        <p className="text-lg md:text-2xl text-muted-foreground mb-4 font-mono-cyber animate-fade-up" style={{ animationDelay: "0.15s" }}>
-          [ Cyber Security Student | Ethical Hacking Enthusiast ]
-        </p>
-        <p className="max-w-2xl mx-auto text-base md:text-lg text-muted-foreground/80 italic mb-10 animate-fade-up" style={{ animationDelay: "0.22s" }}>
-          “Exploring the unseen side of technology — securing the future, one system at a time.”
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-up" style={{ animationDelay: "0.3s" }}>
-          <a
-            href="#projects"
-            className="group inline-flex items-center gap-2 rounded-md bg-primary px-7 py-3 font-display font-bold text-primary-foreground glow hover:scale-105 transition-transform"
-          >
-            View Projects
-            <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-md border border-neon px-7 py-3 font-display font-bold text-neon hover:bg-primary/10 transition-colors"
-          >
-            <Terminal className="h-4 w-4" />
-            Contact
-          </a>
+        <div className="order-1 md:order-2 flex justify-center">
+          <TiltPortrait />
         </div>
       </div>
     </section>
