@@ -376,6 +376,55 @@ function Projects() {
 function Certifications() {
   return (
     <Section id="certs" eyebrow="cat certs/" title="Certifications">
+      <article className="group relative mb-8 overflow-hidden rounded-2xl border border-neon/40 bg-card glow-sm transition-all hover:border-neon hover:glow">
+        <div className="grid md:grid-cols-5 gap-0">
+          <div className="md:col-span-3 relative overflow-hidden bg-background/50">
+            <div className="absolute top-3 left-3 z-10 inline-flex items-center gap-1.5 rounded-full border border-neon bg-background/80 px-3 py-1 font-mono-cyber text-[10px] text-neon glow-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-neon animate-pulse" /> ELITE
+            </div>
+            <img
+              src={nptelCert.url}
+              alt="NPTEL Elite Certificate — Affective Computing"
+              loading="lazy"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(transparent 50%, oklch(0.75 0.18 230 / 0.06) 50%)", backgroundSize: "100% 4px" }} />
+          </div>
+          <div className="md:col-span-2 p-7 flex flex-col justify-center">
+            <p className="font-mono-cyber text-xs text-neon mb-2">// featured_certification</p>
+            <h3 className="text-xl md:text-2xl font-display font-bold mb-2 leading-tight">
+              NPTEL Elite Certificate <span className="text-neon">— Affective Computing</span>
+            </h3>
+            <p className="text-sm text-muted-foreground mb-4">
+              Successfully completed the Affective Computing course and earned <span className="text-neon">Elite</span> certification with a score of 75%.
+            </p>
+            <div className="grid grid-cols-3 gap-2 mb-5">
+              <div className="rounded-lg border border-border bg-background/40 p-2 text-center">
+                <p className="font-mono-cyber text-[10px] text-muted-foreground">ORG</p>
+                <p className="font-display font-bold text-sm text-neon">NPTEL</p>
+              </div>
+              <div className="rounded-lg border border-border bg-background/40 p-2 text-center">
+                <p className="font-mono-cyber text-[10px] text-muted-foreground">DURATION</p>
+                <p className="font-display font-bold text-sm">12 Weeks</p>
+              </div>
+              <div className="rounded-lg border border-border bg-background/40 p-2 text-center">
+                <p className="font-mono-cyber text-[10px] text-muted-foreground">SCORE</p>
+                <p className="font-display font-bold text-sm text-neon">75%</p>
+              </div>
+            </div>
+            <p className="font-mono-cyber text-[11px] text-muted-foreground mb-5">Jan 2026 – Apr 2026 · IIIT Delhi · IIT Madras</p>
+            <a
+              href={nptelCert.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-5 py-2.5 font-display font-bold text-primary-foreground glow hover:scale-105 transition-transform"
+            >
+              <ExternalLink className="h-4 w-4" />
+              View Certificate
+            </a>
+          </div>
+        </div>
+      </article>
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {certifications.map(c => {
           const Icon = c.icon;
