@@ -463,7 +463,7 @@ function Certifications() {
 
 function Contact() {
   const items = [
-    { icon: Mail, label: "Email", value: "lukkanagababu81@gmail.com", href: "mailto:lukkanagababu81@gmail.com" },
+    { icon: Mail, label: "Email", value: "lukkanagababu8@gmail.com", href: "mailto:lukkanagababu8@gmail.com" },
     { icon: Phone, label: "Phone", value: "+91 8125412477", href: "tel:+918125412477" },
     { icon: Github, label: "GitHub", value: "lukkanagababu8", href: "https://github.com/lukkanagababu8" },
     { icon: Linkedin, label: "LinkedIn", value: "nagababu-lukka", href: "https://linkedin.com/in/nagababu-lukka29bb02394" },
@@ -519,7 +519,7 @@ function Footer() {
           <a href="https://linkedin.com/in/nagababu-lukka29bb02394" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-neon transition-colors">
             <Linkedin className="h-5 w-5" />
           </a>
-          <a href="mailto:lukkanagababu81@gmail.com" className="text-muted-foreground hover:text-neon transition-colors">
+          <a href="mailto:lukkanagababu8@gmail.com" className="text-muted-foreground hover:text-neon transition-colors">
             <Mail className="h-5 w-5" />
           </a>
         </div>
