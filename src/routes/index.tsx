@@ -6,6 +6,7 @@ import {
   Eye, ShieldCheck, Wifi, KeyRound, FileSearch, Server,
 } from "lucide-react";
 import portrait from "@/assets/nagababu.jpg";
+import nptelCert from "@/assets/nptel-affective-computing.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
