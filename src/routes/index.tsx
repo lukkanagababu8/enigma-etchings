@@ -8,6 +8,7 @@ import {
 import portrait from "@/assets/nagababu.jpg";
 import nptelCert from "@/assets/nptel-affective-computing.png.asset.json";
 import datavalleyCert from "@/assets/datavalley-internship.jpg.asset.json";
+import cloudDevopsCert from "@/assets/datavalley-cloud-devops-internship.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
