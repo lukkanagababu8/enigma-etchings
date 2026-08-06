@@ -8,6 +8,7 @@ import {
 import portrait from "@/assets/nagababu.jpg";
 import nptelCert from "@/assets/nptel-affective-computing.png.asset.json";
 import datavalleyCert from "@/assets/datavalley-internship.jpg.asset.json";
+import cloudDevopsCert from "@/assets/datavalley-cloud-devops-internship.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
@@ -377,7 +378,7 @@ function Projects() {
 function Certifications() {
   return (
     <Section id="certs" eyebrow="cat certs/" title="Certifications">
-      <div className="grid md:grid-cols-2 gap-6 mb-8">
+      <div className="grid md:grid-cols-3 gap-6 mb-8">
         {[
           {
             url: nptelCert.url,
@@ -397,6 +398,16 @@ function Certifications() {
             desc: <>Completed a 2-month internship under the <span className="text-neon">APSCHE Student Internship Initiative</span> (CSC India), trained by Datavalley — hands-on Python, frontend, backend, databases, and end-to-end web app development.</>,
             stats: [{ k: "ORG", v: "CSC India" }, { k: "DURATION", v: "2 Months" }, { k: "STACK", v: "Python" }],
             footer: "12 May 2025 – 09 Jul 2025 · APSCHE · JNTUK",
+            fit: "object-contain" as const,
+          },
+          {
+            url: cloudDevopsCert.url,
+            badge: "INTERNSHIP",
+            title: "Cloud & DevOps Internship",
+            highlight: "— Datavalley × APSCHE",
+            desc: <>Completed an online S-T internship on <span className="text-neon">Cloud &amp; DevOps</span> organized by Datavalley India Pvt. Ltd. in collaboration with APSCHE — strengthening practical skills in cloud platforms, CI/CD, and DevOps workflows.</>,
+            stats: [{ k: "ORG", v: "Datavalley" }, { k: "DURATION", v: "2 Months" }, { k: "ID", v: "DV-49bc20ab" }],
+            footer: "04 May 2026 – 04 Jul 2026 · A.M. Reddy MCET · JNTU Kakinada",
             fit: "object-contain" as const,
           },
         ].map(c => (
