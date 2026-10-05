@@ -1,6 +1,6 @@
 import { useRouter } from "@tanstack/react-router";
 
-export function ErrorComponent({ error }: { error: Error }) {
+export function ErrorComponent({ error }: { error: unknown }) {
   console.error(error);
   const router = useRouter();
 
