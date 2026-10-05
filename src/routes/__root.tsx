@@ -3,12 +3,14 @@ import {
   Outlet,
   Link,
   createRootRouteWithContext,
-  useRouter,
   HeadContent,
   Scripts,
+  lazyRouteComponent,
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { ErrorComponent } from "@/components/error-component";
+
 
 function NotFoundComponent() {
   return (
