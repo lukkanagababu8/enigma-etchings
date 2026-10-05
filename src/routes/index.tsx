@@ -5,7 +5,7 @@ import {
   Github, Linkedin, Mail, Phone, ExternalLink, ChevronRight,
   Eye, ShieldCheck, Wifi, KeyRound, FileSearch, Server,
 } from "lucide-react";
-import portrait from "@/assets/nagababu-portrait.png.asset.json";
+const portrait = (await import("@/assets/nagababu-portrait.png.asset.json")).default.url;
 import nptelCert from "@/assets/nptel-affective-computing.png.asset.json";
 import datavalleyCert from "@/assets/datavalley-internship.jpg.asset.json";
 import cloudDevopsCert from "@/assets/datavalley-cloud-devops-internship.jpg.asset.json";
