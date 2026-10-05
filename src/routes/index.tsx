@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import {
   Shield, Terminal, Lock, Bug, Network, Code2, Database, Cpu,
-  Github, Linkedin, Mail, Phone, ExternalLink, ChevronRight,
+  Github, Linkedin, Mail, Phone, ExternalLink, ChevronRight, Download,
   Eye, ShieldCheck, Wifi, KeyRound, FileSearch, Server,
 } from "lucide-react";
 import portraitAsset from "@/assets/nagababu-portrait.png.asset.json";
