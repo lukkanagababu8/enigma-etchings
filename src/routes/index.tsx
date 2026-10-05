@@ -383,6 +383,7 @@ function Certifications() {
         {[
           {
             url: nptelCert.url,
+            download: "/certificates/nptel-affective-computing.png",
             badge: "ELITE",
             title: "NPTEL Elite Certificate",
             highlight: "— Affective Computing",
@@ -393,6 +394,7 @@ function Certifications() {
           },
           {
             url: datavalleyCert.url,
+            download: "/certificates/datavalley-python-internship.jpg",
             badge: "INTERNSHIP",
             title: "Full Stack Development – Python",
             highlight: "— Datavalley × APSCHE",
@@ -403,6 +405,7 @@ function Certifications() {
           },
           {
             url: cloudDevopsCert.url,
+            download: "/certificates/datavalley-cloud-devops-internship.jpg",
             badge: "INTERNSHIP",
             title: "Cloud & DevOps Internship",
             highlight: "— Datavalley × APSCHE",
