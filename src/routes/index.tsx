@@ -442,12 +442,11 @@ function Certifications() {
               </div>
               <p className="font-mono-cyber text-[11px] text-muted-foreground mb-4">{c.footer}</p>
               <a
-                href={c.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={c.download}
+                download
                 className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-5 py-2.5 font-display font-bold text-primary-foreground glow hover:scale-105 transition-transform"
               >
-                <ExternalLink className="h-4 w-4" />
+                <Download className="h-4 w-4" />
                 View Certificate
               </a>
             </div>
