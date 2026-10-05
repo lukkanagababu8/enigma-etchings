@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import {
   Shield, Terminal, Lock, Bug, Network, Code2, Database, Cpu,
-  Github, Linkedin, Mail, Phone, ExternalLink, ChevronRight,
+  Github, Linkedin, Mail, Phone, ExternalLink, ChevronRight, Download,
   Eye, ShieldCheck, Wifi, KeyRound, FileSearch, Server,
 } from "lucide-react";
 import portraitAsset from "@/assets/nagababu-portrait.png.asset.json";
@@ -383,6 +383,7 @@ function Certifications() {
         {[
           {
             url: nptelCert.url,
+            download: "/certificates/nptel-affective-computing.png",
             badge: "ELITE",
             title: "NPTEL Elite Certificate",
             highlight: "— Affective Computing",
@@ -393,6 +394,7 @@ function Certifications() {
           },
           {
             url: datavalleyCert.url,
+            download: "/certificates/datavalley-python-internship.jpg",
             badge: "INTERNSHIP",
             title: "Full Stack Development – Python",
             highlight: "— Datavalley × APSCHE",
@@ -403,6 +405,7 @@ function Certifications() {
           },
           {
             url: cloudDevopsCert.url,
+            download: "/certificates/datavalley-cloud-devops-internship.jpg",
             badge: "INTERNSHIP",
             title: "Cloud & DevOps Internship",
             highlight: "— Datavalley × APSCHE",
@@ -442,12 +445,11 @@ function Certifications() {
               </div>
               <p className="font-mono-cyber text-[11px] text-muted-foreground mb-4">{c.footer}</p>
               <a
-                href={c.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={c.download}
+                download
                 className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-5 py-2.5 font-display font-bold text-primary-foreground glow hover:scale-105 transition-transform"
               >
-                <ExternalLink className="h-4 w-4" />
+                <Download className="h-4 w-4" />
                 View Certificate
               </a>
             </div>
